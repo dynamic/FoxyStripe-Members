@@ -1,0 +1,21 @@
+{
+    "name": "dynamic/foxystripe-members",
+    "description": "FoxyStripe Members is an add-on to FoxyStripe that allows for easy integration with MemberProfiles module.",
+    "keywords": ["silverstripe", "foxycart", "foxystripe", "dynamic", "ecommerce"],
+    "type": "silverstripe-module",
+    "license": "BSD-3-Clause",
+	"authors": [
+		{
+			"name": "Dynamic Inc",
+			"email": "info@dynamicdoes.com"
+		}
+	],
+    "require": {
+    	"silverstripe/framework": "3.1.*",
+        "dynamic/foxystripe": "*",
+        "ajshort/silverstripe-memberprofiles": "*"
+    },
+    "extra": {
+		"installer-name": "foxystripe-members"
+	}
+}
