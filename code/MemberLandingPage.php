@@ -20,8 +20,15 @@ class MemberLandingPage_Controller extends Page_Controller {
 
     public function checkMember() {
         if(Member::currentUser()) {
+	        
             return true;
+            
+        } elseif($MemberPage = FoxyCartMemberProfilePage::get()->First()) {
+	        
+	        Controller::redirect($MemberPage->Link());
+        
         } else {
+           
             return Security::permissionFailure ($this, _t (
                 'AccountPage.CANNOTCONFIRMLOGGEDIN',
                 'Please login to view this page.'
@@ -31,7 +38,7 @@ class MemberLandingPage_Controller extends Page_Controller {
 
     public function Index() {
 
-        $this->checkMember();
+        $this->checkMember();       
         return array();
 
     }
