@@ -1,41 +1,39 @@
-<div class="sixteen columns alpha omega half-bottom crumbs">
-    $Breadcrumbs
-</div>
-<div class="sixteen columns typography NoSlide">
-    <article>
-        <h2 class="title remove-bottom<% if SubTitle %><% else %> double-bottom<% end_if %>">$Title</h2>
-		<% if $SubTitle %><h3 class="subtitle">$SubTitle</h5><% end_if %>
-        <div class="content typography">$Content</div>
-    </article>
+<% include SideBar %>
+<div class="content-container unit size3of4 lastUnit">
+    <h1>$Title</h1>
+
+    <div class="content">
+        $Content
+    </div>
     
 	<% if CurrentMember %>
-	    <% if $OrderHistory %>
+	
+		<% if $OrderHistory %>
 	        <% with $OrderHistory %>
-	            <div class="one-third column alpha">
+	            <div class="size1of3 unit">
 	                <h4><a href="$Link">$Title</a></h4>
-	                <div class="typography">$Content</div>
+	                <div class="typography"><p>View your order history.</p></div>
 	                <p><button onclick="location.href = '$Link';">My Orders</button></p>
 	            </div>
 	        <% end_with %>
 	    <% end_if %>
-	
-	    <% if $MemberPage %>
+		
+		<% if $MemberPage %>
 	        <% with $MemberPage %>
-	            <div class="one-third column">
+	            <div class="size1of3 unit">
 	                <h4><a href="$Link">$Title</a></h4>
-	                <div class="typography">$ProfileContent</div>
+	                <div class="typography"><p>Edit your account information.</p></div>
 	                <p><button onclick="location.href = '$Link';">Edit Account</button></p>
 	            </div>
 	        <% end_with %>
 	    <% end_if %>
 	
-	    <div class="one-third column omega">
+		<div class="size1of3 lastUnit">
 	        <h4><a href="/Security/logout?BackURL=$Link">Logout</a></h4>
 	        <p>Logout of your account.</p>
 	        <p><button onclick="location.href = '/Security/logout?BackURL=$Link';">Logout</button> </p>
-	    </div>
+		</div>
+	
 	<% end_if %>
 
-    $Form
-    $PageComments
 </div>
