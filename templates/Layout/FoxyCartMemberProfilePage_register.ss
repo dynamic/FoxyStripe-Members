@@ -1,3 +1,10 @@
+<%-- redeclare Simple theme includes to keep correct inclusion order --%>
+<% require themedCSS('reset') %>
+<% require themedCSS('typography') %>
+<% require themedCSS('layout') %>
+<%-- FoxyStripe requirements --%>
+<% require css('foxystripe/css/foxycart.css') %>
+
 <% include SideBar %>
 <div class="content-container unit size3of4 lastUnit">
     <h1>$Title</h1>
