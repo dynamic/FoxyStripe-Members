@@ -38,6 +38,40 @@ if (class_exists('MemberProfilePage')) {
             return $data;
         }
 
+        /**
+         * Handles validation and saving new Member objects, as well as sending out validation emails.
+         */
+        public function register($data, Form $form) {
+            if($member = $this->addMember($form)) {
+                if(!$this->RequireApproval && $this->EmailType != 'Validation' && !$this->AllowAdding) {
+                    $member->logIn();
+                }
+
+                if(isset($data['backURL'])){
+                    $this->redirect($data['backURL']);
+                }
+
+                if ($this->RegistrationRedirect) {
+                    if ($this->PostRegistrationTargetID) {
+                        $this->redirect($this->PostRegistrationTarget()->Link());
+                        return;
+                    }
+
+                    if ($sessionTarget = Session::get('MemberProfile.REDIRECT')) {
+                        Session::clear('MemberProfile.REDIRECT');
+                        if (Director::is_site_url($sessionTarget)) {
+                            $this->redirect($sessionTarget);
+                            return;
+                        }
+                    }
+                }
+
+                return $this->redirect($this->Link('afterregistration'));
+            } else {
+                return $this->redirectBack();
+            }
+        }
+
     }
 
 }
