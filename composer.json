@@ -13,7 +13,7 @@
     "require": {
     	"silverstripe/framework": "^3.1",
         "dynamic/foxystripe": "*",
-        "silverstripe-australia/memberprofiles": "*"
+        "symbiote/silverstripe-memberprofiles": "*"
     },
     "extra": {
 		"installer-name": "foxystripe-members",
