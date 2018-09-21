@@ -5,28 +5,36 @@ if (class_exists('MemberProfilePage')) {
     /*
      * Extends Member Profiles by ajshort. Adds a Simple theme template with subnavigation
      */
-    class FoxyCartMemberProfilePage extends MemberProfilePage {
-
+    class FoxyCartMemberProfilePage extends MemberProfilePage
+    {
+        /**
+         * @var string
+         */
         private static $hide_ancestor = 'MemberProfilePage';
 
-        private static $singular_name = 'Member Page';
-        private static $plural_name = 'Member Pages';
-        private static $description = 'Members can register and edit their profile';
+        /**
+         * @var string
+         */
+        private static $singular_name = 'Edit Account Page';
 
-		public function getCMSFields(){
-			$fields = parent::getCMSFields();
+        /**
+         * @var string
+         */
+        private static $plural_name = 'Edit Account Pages';
 
-
-
-			$this->extend('updateCMSFields', $fields);
-			return $fields;
-		}
-
+        /**
+         * @var string
+         */
+        private static $description = 'FoxyStripe customers can register and edit their profile';
     }
 
-    class FoxyCartMemberProfilePage_Controller extends MemberProfilePage_Controller {
-
-        public function index() {
+    class FoxyCartMemberProfilePage_Controller extends MemberProfilePage_Controller
+    {
+        /**
+         * @return array|HTMLText
+         */
+        public function index()
+        {
             if (isset($_GET['BackURL'])) {
                 Session::set('MemberProfile.REDIRECT', $_GET['BackURL']);
             }
@@ -41,13 +49,14 @@ if (class_exists('MemberProfilePage')) {
         /**
          * Handles validation and saving new Member objects, as well as sending out validation emails.
          */
-        public function register($data, Form $form) {
-            if($member = $this->addMember($form)) {
-                if(!$this->RequireApproval && $this->EmailType != 'Validation' && !$this->AllowAdding) {
+        public function register($data, Form $form)
+        {
+            if ($member = $this->addMember($form)) {
+                if (!$this->RequireApproval && $this->EmailType != 'Validation' && !$this->AllowAdding) {
                     $member->logIn();
                 }
 
-                if(isset($data['backURL'])){
+                if (isset($data['backURL'])) {
                     $this->redirect($data['backURL']);
                 }
 
@@ -71,7 +80,5 @@ if (class_exists('MemberProfilePage')) {
                 return $this->redirectBack();
             }
         }
-
     }
-
 }
