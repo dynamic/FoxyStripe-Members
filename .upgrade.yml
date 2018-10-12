@@ -1,0 +1,5 @@
+mappings:
+  FoxyCartMemberProfilePage: Dynamic\FoxyStripeMembers\FoxyCartMemberProfilePage
+  FoxyCartMemberProfilePage_Controller: Dynamic\FoxyStripeMembers\FoxyCartMemberProfilePage_Controller
+  MemberLandingPage: Dynamic\FoxyStripeMembers\MemberLandingPage
+  MemberLandingPage_Controller: Dynamic\FoxyStripeMembers\MemberLandingPage_Controller

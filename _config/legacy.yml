@@ -1,0 +1,7 @@
+---
+name: foxystripe-members-legacy
+---
+SilverStripe\ORM\DatabaseAdmin:
+  classname_value_remapping:
+    FoxyCartMemberProfilePage: Dynamic\FoxyStripeMembers\FoxyCartMemberProfilePage
+    MemberLandingPage: Dynamic\FoxyStripeMembers\MemberLandingPage
