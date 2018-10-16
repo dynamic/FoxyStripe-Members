@@ -8,7 +8,7 @@
         "dynamic",
         "ecommerce"
     ],
-    "type": "silverstripe-module",
+    "type": "silverstripe-vendormodule",
     "license": "BSD-3-Clause",
     "authors": [
         {
@@ -21,7 +21,8 @@
         "dynamic/foxystripe": "^4.0",
         "symbiote/silverstripe-memberprofiles": "^4.0",
         "php": ">=5.6",
-        "silverstripe/recipe-core": "^4.2"
+        "silverstripe/recipe-core": "^4.2",
+        "silverstripe/vendor-plugin": "^1.0"
     },
     "require-dev": {
         "phpunit/PHPUnit": "^5.7",
