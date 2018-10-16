@@ -17,8 +17,5 @@
     },
     "extra": {
 		"installer-name": "foxystripe-members",
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        }
 	}
 }
