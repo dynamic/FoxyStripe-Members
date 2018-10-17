@@ -16,6 +16,6 @@
         "symbiote/silverstripe-memberprofiles": "*"
     },
     "extra": {
-		"installer-name": "foxystripe-members",
+		"installer-name": "foxystripe-members"
 	}
 }
