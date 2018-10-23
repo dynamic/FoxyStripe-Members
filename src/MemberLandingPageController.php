@@ -3,6 +3,7 @@
 namespace Dynamic\FoxyStripeMembers;
 
 use SilverStripe\Control\Controller;
+use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\Security;
 
