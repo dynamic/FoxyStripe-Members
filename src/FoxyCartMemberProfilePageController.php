@@ -5,7 +5,9 @@ namespace Dynamic\FoxyStripeMembers;
 use SilverStripe\Control\Director;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Control\Session;
+use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Forms\Form;
+use SilverStripe\Security\IdentityStore;
 use SilverStripe\Security\Member;
 use Symbiote\MemberProfiles\Pages\MemberProfilePageController;
 
@@ -34,7 +36,9 @@ class FoxyCartMemberProfilePageController extends MemberProfilePageController
     {
         if ($member = $this->addMember($form)) {
             if (!$this->RequireApproval && $this->EmailType != 'Validation' && !$this->AllowAdding) {
-                $member->logIn();
+                if($member->canLogin()){
+					Injector::inst()->get(IdentityStore::class)->logIn($member);
+				}
             }
 
             if (isset($data['backURL'])) {
