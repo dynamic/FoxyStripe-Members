@@ -42,7 +42,7 @@ class FoxyCartMemberProfilePageController extends MemberProfilePageController
             }
 
             if (isset($data['backURL'])) {
-                $this->redirect($data['backURL']);
+                return $this->redirect($data['backURL']);
             }
 
             if ($this->RegistrationRedirect) {
